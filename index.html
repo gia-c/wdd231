@@ -1,11 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD231 | Gisela Casas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gisela Casas | WDD 231 Web Frontend Development I</title>
+  <meta name="description" content="This is the home page for WDD 231 Web Frontend Development 1, created by Gisela Casas">
+  <meta name="author" content="Gisela Casas">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- defer = scripts load after the HTML is parsed, in this order -->
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/courses.js" defer></script>
 </head>
+
 <body>
-    
+  <!-- Logo + name + hamburger button (small screens) -->
+  <header class="site-header">
+    <div class="header-brand">
+      <img src="images/logo.webp" alt="Gisela Casas logo" width="42" height="42">
+      <span class="header-name">Gisela Casas</span>
+    </div>
+
+    <button
+      id="navToggle"
+      class="nav-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="primaryNav"
+    >
+      <span class="toggle-bar"></span>
+      <span class="toggle-bar"></span>
+      <span class="toggle-bar"></span>
+    </button>
+  </header>
+
+  <!-- Main site navigation: collapsible on small screens, horizontal on larger ones -->
+  <nav class="primary-nav" id="primaryNav">
+    <ul class="nav-list">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="chamber/index.html">Chamber Project</a></li>
+      <li><a href="final/index.html">Final Project</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Home</h1>
+
+    <!-- About Me -->
+    <section class="panel about-me">
+      <h2>About Me</h2>
+      <div class="about-text">
+        <p>My name is Gisela. I have a degree in Business Administration and I am currently
+          studying Software Development. After several years working in a Chinese Tech
+          company, I decided to pursue a career in technology to combine my passion for
+          problem-solving with continuous learning.</p>
+        <p>Throughout my career, I have worked in hospitality, retail, and technology
+          industries. Today, I work for a global athleisure brand that combines technology
+          and fashion. Living in Argentina and the United States, along with traveling to
+          other countries, has strengthened my adaptability and appreciation for different
+          cultures.</p>
+        <p>I speak English, Spanish, and French, and I enjoy learning new technologies,
+          building practical solutions, and expanding my skills as I continue my journey in
+          software development.</p>
+      </div>
+    </section>
+
+    <!-- Student Photo -->
+    <section class="panel student-photo">
+      <h2>Student Photo</h2>
+      <img class="student-img" src="images/profile.webp" alt="Portrait of Gisela Casas">
+    </section>
+
+    <!-- Web Certificate Courses: filter buttons + dynamically rendered cards -->
+    <section class="panel courses-section">
+      <h2>Web Certificate Courses</h2>
+
+      <div class="course-filters" role="group" aria-label="Filter courses by subject">
+        <button class="filter-btn" type="button" data-subject="ALL" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-subject="CSE" aria-pressed="false">CSE</button>
+        <button class="filter-btn" type="button" data-subject="WDD" aria-pressed="false">WDD</button>
+      </div>
+
+      <!-- Filled in by scripts/courses.js -->
+      <ul class="course-list" id="courseList" aria-live="polite"></ul>
+
+      <p class="course-total">
+        The total credits for the courses listed above is <strong id="creditTotal">0</strong>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+   
+    <ul class="social-links">
+      <li>
+        <a href="https://github.com/gia-c/wdd231"><img src="images/github-icon.svg" alt=""></a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/"><img src="images/linkedin-icon.svg" alt=""></a>
+      </li>
+      <li>
+        <a href="https://x.com/"><img src="images/x-icon.svg" alt=""></a>
+      </li>
+    </ul>
+
+    <div class="footer-bar">
+      <!-- currentYear and lastModified are filled in by scripts/date.js -->
+      <p class="footer-identity">&copy; <span id="currentYear"></span> Gisela Casas • Lima • Perú</p>
+      <p class="footer-date" id="lastModified"></p>
+    </div>
+  </footer>
 </body>
 </html>
