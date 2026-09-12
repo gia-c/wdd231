@@ -1,0 +1,81 @@
+{
+  "members": [
+    {
+      "name": "Café Barranco",
+      "address": "Av. Grau 320, Barranco, Lima",
+      "phone": "(01) 445-2210",
+      "email": "info@cafebarranco.pe",
+      "url": "https://www.cafebarranco.pe",
+      "image": "images/members/cafe-barranco.webp",
+      "tagline": "Specialty coffee roasted in Lima",
+      "membership": 3,
+      "founded": 2015
+    },
+    {
+      "name": "Textiles Andinos SAC",
+      "address": "Jr. Los Telares 145, San Isidro, Lima",
+      "phone": "(01) 512-8890",
+      "email": "ventas@textilesandinos.pe",
+      "url": "https://www.textilesandinos.pe",
+      "image": "images/members/textiles-andinos.webp",
+      "tagline": "Handwoven alpaca textiles",
+      "membership": 2,
+      "founded": 2001
+    },
+    {
+      "name": "Miraflores Tech Solutions",
+      "address": "Av. Larco 890, Miraflores, Lima",
+      "phone": "(01) 633-4021",
+      "email": "contacto@mirafloretech.pe",
+      "url": "https://www.mirafloretech.pe",
+      "image": "images/members/miraflores-tech.webp",
+      "tagline": "Software for small businesses",
+      "membership": 3,
+      "founded": 2018
+    },
+    {
+      "name": "Panadería San Martín",
+      "address": "Calle Berlín 210, Miraflores, Lima",
+      "phone": "(01) 447-9032",
+      "email": "hola@panaderiasanmartin.pe",
+      "url": "https://www.panaderiasanmartin.pe",
+      "image": "images/members/panaderia-san-martin.webp",
+      "tagline": "Fresh bread and pastries daily",
+      "membership": 1,
+      "founded": 1998
+    },
+    {
+      "name": "Lima Legal Advisors",
+      "address": "Av. Javier Prado Este 1200, San Isidro, Lima",
+      "phone": "(01) 700-1122",
+      "email": "info@limalegal.pe",
+      "url": "https://www.limalegal.pe",
+      "image": "images/members/lima-legal.webp",
+      "tagline": "Corporate and business law",
+      "membership": 2,
+      "founded": 2009
+    },
+    {
+      "name": "EcoLima Transportes",
+      "address": "Av. Argentina 2450, Callao, Lima",
+      "phone": "(01) 484-5567",
+      "email": "servicio@ecolima.pe",
+      "url": "https://www.ecolimatransportes.pe",
+      "image": "images/members/ecolima.webp",
+      "tagline": "Sustainable logistics and delivery",
+      "membership": 1,
+      "founded": 2020
+    },
+    {
+      "name": "Galería Pachacamac",
+      "address": "Jr. Independencia 560, Barranco, Lima",
+      "phone": "(01) 477-3390",
+      "email": "arte@galeriapachacamac.pe",
+      "url": "https://www.galeriapachacamac.pe",
+      "image": "images/members/galeria-pachacamac.webp",
+      "tagline": "Contemporary Peruvian art gallery",
+      "membership": 3,
+      "founded": 2012
+    }
+  ]
+}

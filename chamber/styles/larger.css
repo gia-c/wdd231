@@ -1,0 +1,65 @@
+/* ==========================================================
+   Overrides for wider screens (tablet and desktop)
+   ========================================================== */
+
+@media (min-width: 700px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  header {
+    padding: 1rem 2rem;
+  }
+
+  .header-logo img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .header-logo span {
+    font-size: 1.25rem;
+  }
+
+  nav {
+    display: block;
+    position: static;
+    background-color: transparent;
+    width: auto;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+
+  nav a {
+    border-bottom: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+
+  main {
+    padding: 2rem 2rem 3rem;
+    max-width: 1200px;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  #member-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #member-list.list-view {
+    grid-template-columns: 1fr;
+  }
+
+  #member-list.list-view .member-card-body {
+    flex-direction: row;
+  }
+
+  footer .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

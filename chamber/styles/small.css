@@ -1,0 +1,303 @@
+/* ==========================================================
+   Base styles for all screens, starting at 320px wide.
+   Larger screen styles are added in larger.css
+   ========================================================== */
+
+:root {
+  --color-primary: #0d1321;
+  --color-secondary: #1d2d44;
+  --color-accent: #3e5c76;
+  --color-light-accent: #748cab;
+  --color-background: #b08d3f;
+  --color-background-light: #f8f5ec;
+  --color-text: #0d1321;
+
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-background-light);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+/* ---------- Header ---------- */
+
+header {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.header-logo span {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Hamburger button, only shown on small screens */
+.nav-toggle {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-background);
+  border-radius: 2px;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.nav-toggle span:nth-child(2) {
+  top: 11px;
+}
+
+.nav-toggle span:nth-child(3) {
+  top: 22px;
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+  background-color: var(--color-secondary);
+  width: 100%;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  display: none;
+  z-index: 10;
+}
+
+nav.open {
+  display: block;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+nav a {
+  display: block;
+  padding: 0.9rem 1.25rem;
+  color: var(--color-background);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-accent);
+}
+
+nav a:hover,
+nav a.active {
+  background-color: var(--color-accent);
+}
+
+header {
+  position: relative;
+}
+
+/* ---------- Main content ---------- */
+
+main {
+  padding: 1.25rem 1rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* View toggle buttons */
+
+.view-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.view-buttons button {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  border-radius: 4px;
+}
+
+.view-buttons button.active {
+  background-color: var(--color-accent);
+}
+
+/* ---------- Member cards ---------- */
+
+#member-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.member-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-light-accent);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.member-card-header {
+  background-color: var(--color-light-accent);
+  padding: 0.6rem 1rem;
+  text-align: center;
+}
+
+.member-card-header h3 {
+  font-size: 1.1rem;
+}
+
+.member-card-header p {
+  font-size: 0.85rem;
+}
+
+.member-card-body {
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.member-card-body img {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.member-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  overflow-wrap: break-word;
+}
+
+.member-info strong {
+  font-family: var(--font-heading);
+}
+
+.membership-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 3px;
+  color: #ffffff;
+}
+
+.badge-1 {
+  background-color: var(--color-accent);
+}
+
+.badge-2 {
+  background-color: #8a8f98;
+}
+
+.badge-3 {
+  background-color: #b8860b;
+}
+
+/* List view: cards become one-column rows, image beside info */
+
+#member-list.list-view {
+  grid-template-columns: 1fr;
+}
+
+#member-list.list-view .member-card-body {
+  align-items: center;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+footer .footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+footer h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+footer p {
+  margin-bottom: 0.2rem;
+}
+
+footer a {
+  color: var(--color-light-accent);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a:hover {
+  background-color: var(--color-accent);
+}
+
+.footer-social img {
+  width: 18px;
+  height: 18px;
+}
