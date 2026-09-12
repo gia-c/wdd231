@@ -1,4 +1,5 @@
 /* ==========================================================
+   small.css
    Base styles for all screens, starting at 320px wide.
    Larger screen styles are added in larger.css
    ========================================================== */
@@ -8,9 +9,13 @@
   --color-secondary: #1d2d44;
   --color-accent: #3e5c76;
   --color-light-accent: #748cab;
-  --color-background: #b08d3f;
+  --color-background: #f0ebd8;
   --color-background-light: #f8f5ec;
   --color-text: #0d1321;
+  --color-card: #ffffff;
+  --color-badge-text: #ffffff;
+  --color-badge-silver: #8a8f98;
+  --color-badge-gold: #b8860b;
 
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Open Sans", sans-serif;
@@ -37,6 +42,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
+  position: relative;
 }
 
 .header-logo {
@@ -123,10 +129,6 @@ nav a.active {
   background-color: var(--color-accent);
 }
 
-header {
-  position: relative;
-}
-
 /* ---------- Main content ---------- */
 
 main {
@@ -172,7 +174,7 @@ main {
 }
 
 .member-card {
-  background-color: #ffffff;
+  background-color: var(--color-card);
   border: 1px solid var(--color-light-accent);
   border-radius: 6px;
   overflow: hidden;
@@ -184,7 +186,7 @@ main {
   text-align: center;
 }
 
-.member-card-header h3 {
+.member-card-header h2 {
   font-size: 1.1rem;
 }
 
@@ -204,6 +206,7 @@ main {
   height: 64px;
   border-radius: 4px;
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 .member-info p {
@@ -223,7 +226,7 @@ main {
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: 3px;
-  color: #ffffff;
+  color: var(--color-badge-text);
 }
 
 .badge-1 {
@@ -231,11 +234,11 @@ main {
 }
 
 .badge-2 {
-  background-color: #8a8f98;
+  background-color: var(--color-badge-silver);
 }
 
 .badge-3 {
-  background-color: #b8860b;
+  background-color: var(--color-badge-gold);
 }
 
 /* List view: cards become one-column rows, image beside info */
@@ -265,7 +268,7 @@ footer .footer-content {
   gap: 1rem;
 }
 
-footer h3 {
+footer h2 {
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }

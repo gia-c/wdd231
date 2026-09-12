@@ -18,7 +18,7 @@ const membershipLabels = {
 
 // Get the member data from the JSON file
 async function getMemberData() {
-  const response = await fetch("scripts/members.json");
+  const response = await fetch("data/members.json");
   const data = await response.json();
   return data.members;
 }
@@ -30,7 +30,7 @@ function buildCard(member) {
 
   card.innerHTML = `
     <div class="member-card-header">
-      <h3>${member.name}</h3>
+      <h2>${member.name}</h2>
       <p>${member.tagline}</p>
     </div>
     <div class="member-card-body">
