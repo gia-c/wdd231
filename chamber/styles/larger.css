@@ -1,7 +1,4 @@
-/* ==========================================================
-   larger.css
-   Overrides for wider screens (tablet and desktop)
-   ========================================================== */
+/* Overrides for wider screens (tablet and desktop) */
 
 @media (min-width: 700px) {
   .nav-toggle {
@@ -30,6 +27,7 @@
 
   nav ul {
     flex-direction: row;
+    gap: 0.4rem;
   }
 
   nav a {
@@ -52,15 +50,51 @@
   }
 
   #member-list.list-view {
-    grid-template-columns: 1fr;
-  }
-
-  #member-list.list-view .member-card-body {
-    flex-direction: row;
+    display: block;
   }
 
   footer .footer-content {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    margin: -2rem -2rem 2.5rem;
+  }
+
+  .hero-image {
+    height: 380px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+    max-width: 700px;
+  }
+
+  .hero-overlay p {
+    font-size: 1.2rem;
+  }
+
+  /* ---------- Home columns: events + weather side by side ---------- */
+
+  .home-columns {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .events-section {
+    flex: 2;
+  }
+
+  .weather-section {
+    flex: 1;
+  }
+
+  /* ---------- Spotlights in a row ---------- */
+
+  .spotlight-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

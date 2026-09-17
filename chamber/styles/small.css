@@ -1,21 +1,20 @@
-/* ==========================================================
-   small.css
-   Base styles for all screens, starting at 320px wide.
-   Larger screen styles are added in larger.css
-   ========================================================== */
-
+/* Base styles for all screens, starting at 320px wide.
+Larger screen styles are added in larger.css */
+ 
 :root {
-  --color-primary: #0d1321;
-  --color-secondary: #1d2d44;
-  --color-accent: #3e5c76;
-  --color-light-accent: #748cab;
-  --color-background: #f0ebd8;
-  --color-background-light: #f8f5ec;
-  --color-text: #0d1321;
+  --color-primary: #094074;    /* dark blue: header, footer, main text */
+  --color-secondary: #3c6997;  /* medium blue: nav, secondary buttons */
+  --color-accent: #5adbff;     /* sky blue: highlights, badges (pair with dark text) */
+  --color-highlight: #ffdd4a;  /* yellow: gold badge, highlight accents (pair with dark text) */
+  --color-cta: #fe9000;        /* orange: call-to-action button (pair with dark text) */
+
+  --color-background: #ffffff; /* page background, and light text on dark backgrounds */
   --color-card: #ffffff;
-  --color-badge-text: #ffffff;
-  --color-badge-silver: #8a8f98;
-  --color-badge-gold: #b8860b;
+  --color-text: #094074;
+  --color-border: rgba(9, 64, 116, 0.18);
+
+  --shadow-base: 0 1px 3px rgba(9, 64, 116, 0.12);
+  --shadow-hover: 0 10px 22px rgba(9, 64, 116, 0.22);
 
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Open Sans", sans-serif;
@@ -24,7 +23,7 @@
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background-color: var(--color-background-light);
+  background-color: var(--color-background);
 }
 
 h1,
@@ -121,12 +120,14 @@ nav a {
   color: var(--color-background);
   font-family: var(--font-heading);
   font-weight: 600;
-  border-bottom: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 nav a:hover,
 nav a.active {
   background-color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 /* ---------- Main content ---------- */
@@ -159,10 +160,16 @@ main {
   background-color: var(--color-secondary);
   color: var(--color-background);
   border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.view-buttons button:hover {
+  background-color: var(--color-primary);
 }
 
 .view-buttons button.active {
   background-color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 /* ---------- Member cards ---------- */
@@ -175,23 +182,37 @@ main {
 
 .member-card {
   background-color: var(--color-card);
-  border: 1px solid var(--color-light-accent);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   overflow: hidden;
+  box-shadow: var(--shadow-base);
+}
+
+/* Interactive hover lift — grid view only, not the list-view rows */
+#member-list:not(.list-view) .member-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#member-list:not(.list-view) .member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
 }
 
 .member-card-header {
-  background-color: var(--color-light-accent);
+  background-color: var(--color-accent);
   padding: 0.6rem 1rem;
   text-align: center;
 }
 
 .member-card-header h2 {
   font-size: 1.1rem;
+  color: var(--color-primary);
 }
 
 .member-card-header p {
   font-size: 0.85rem;
+  color: var(--color-primary);
 }
 
 .member-card-body {
@@ -226,29 +247,322 @@ main {
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: 3px;
-  color: var(--color-badge-text);
 }
 
+/* Member: secondary blue bg, white text */
 .badge-1 {
-  background-color: var(--color-accent);
+  background-color: var(--color-secondary);
+  color: var(--color-background);
 }
 
+/* Silver: sky accent bg, dark text */
 .badge-2 {
-  background-color: var(--color-badge-silver);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
 }
 
+/* Gold: yellow highlight bg, dark text */
 .badge-3 {
-  background-color: var(--color-badge-gold);
+  background-color: var(--color-highlight);
+  color: var(--color-primary);
 }
 
-/* List view: cards become one-column rows, image beside info */
+/* List view: flat table-style rows, alternating background */
 
 #member-list.list-view {
-  grid-template-columns: 1fr;
+  display: block;
+}
+
+#member-list.list-view .member-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  background-color: var(--color-card);
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.85rem 1rem;
+  box-shadow: none;
+}
+
+#member-list.list-view .member-card:nth-child(even) {
+  background-color: rgba(60, 105, 151, 0.07);
+}
+
+#member-list.list-view .member-card-header {
+  background: none;
+  padding: 0;
+  text-align: left;
+  flex: 0 0 180px;
+}
+
+#member-list.list-view .member-card-header h2 {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+
+#member-list.list-view .member-card-header p,
+#member-list.list-view .member-info p:nth-of-type(3) {
+  display: none;
 }
 
 #member-list.list-view .member-card-body {
+  flex: 1;
+  padding: 0;
+}
+
+#member-list.list-view .member-card-body img {
+  display: none;
+}
+
+#member-list.list-view .member-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+#member-list.list-view .member-info p {
+  flex: 1 1 200px;
+  min-width: 200px;
+  margin-bottom: 0;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+#member-list.list-view .member-info p strong {
+  display: none;
+}
+
+#member-list.list-view .membership-badge {
+  display: none;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  margin: -1.25rem -1rem 2rem;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(48, 83, 115, 0.6);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--color-background);
+}
+
+.hero-overlay h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-overlay p {
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--color-cta);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  transform: translateY(-2px);
+}
+
+/* ---------- Home columns: events + weather ---------- */
+
+.home-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.events-section h2,
+.weather-section h2,
+.spotlights-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: var(--shadow-base);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
+}
+
+.event-date {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  background-color: var(--color-highlight);
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.event-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.event-card p:last-child {
+  font-size: 0.9rem;
+}
+
+.weather-section {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: var(--shadow-base);
+}
+
+.current-weather-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.weather-icon {
+  width: 56px;
+  height: 56px;
+}
+
+.current-temp {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-cta);
+  padding: 0.15rem 0.75rem;
+  border-radius: 8px;
+}
+
+.current-desc {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+}
+
+.forecast-day {
+  flex: 1;
+  text-align: center;
+}
+
+.forecast-label {
+  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.forecast-temp {
+  font-size: 1rem;
+}
+
+/* ---------- Spotlights ---------- */
+
+.spotlights-section {
+  margin-bottom: 2rem;
+}
+
+.spotlight-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.spotlight-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow-base);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
+}
+
+.spotlight-card img {
+  width: 72px;
+  height: 72px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin: 0 auto 0.75rem;
+}
+
+.spotlight-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.spotlight-card p {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  overflow-wrap: break-word;
+}
+
+.spotlight-card .membership-badge {
+  margin-top: 0.5rem;
 }
 
 /* ---------- Footer ---------- */
@@ -278,7 +592,7 @@ footer p {
 }
 
 footer a {
-  color: var(--color-light-accent);
+  color: var(--color-accent);
 }
 
 .footer-social {
@@ -294,10 +608,12 @@ footer a {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .footer-social a:hover {
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
+  transform: translateY(-3px);
 }
 
 .footer-social img {

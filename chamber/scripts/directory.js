@@ -1,9 +1,7 @@
-// ============================================================
-// directory.js
 // Loads member data from members.json and displays it as
-// cards. Also handles the grid/list toggle, the mobile menu,
-// and the footer date information.
-// ============================================================
+// cards. Also handles the grid/list toggle.
+// (Mobile menu and footer date live in common.js)
+
 
 const memberListEl = document.querySelector("#member-list");
 const gridBtn = document.querySelector("#gridBtn");
@@ -80,19 +78,3 @@ listBtn.addEventListener("click", () => {
   listBtn.classList.add("active");
   gridBtn.classList.remove("active");
 });
-
-// ---------- Mobile menu toggle ----------
-
-const navToggle = document.querySelector("#navToggle");
-const mainNav = document.querySelector("#mainNav");
-
-navToggle.addEventListener("click", () => {
-  mainNav.classList.toggle("open");
-  const isOpen = mainNav.classList.contains("open");
-  navToggle.setAttribute("aria-expanded", isOpen);
-});
-
-// ---------- Footer: copyright year and last modified date ----------
-
-document.querySelector("#copyrightYear").textContent = new Date().getFullYear();
-document.querySelector("#lastModified").textContent = document.lastModified;
