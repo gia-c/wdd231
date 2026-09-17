@@ -21,7 +21,7 @@
   nav {
     display: block;
     position: static;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0);
     width: auto;
   }
 
@@ -47,10 +47,6 @@
 
   #member-list {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  #member-list.list-view {
-    display: block;
   }
 
   footer .footer-content {
