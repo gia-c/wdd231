@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Loader con Transition</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+  p {
+    color: #333;
+  }
+
+  /* Círculo que gira al pasar el mouse */
+  .loader-t {
+    width: 150px;
+    height: 150px;
+    border: 4px dashed #444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+
+    transition: transform 1.5s linear;
+  }
+
+  .loader-t:hover {
+    transform: rotate(360deg);
+  }
+
+  /* Icono: pollito a la parrilla */
+  .loader-icon {
+    font-size: 2rem;
+    margin: 0;
+    transform: scale(0);
+    transition: transform 1.5s ease-in-out;
+  }
+
+  .loader-t:hover .loader-icon {
+    transform: scale(1.5);
+  }
+</style>
+</head>
+<body>
+
+  <div class="loader-t">
+    <p class="loader-icon">🍗</p>
+  </div>
+
+  <p>Hover your mouse over the circle... the chicken is roasting! 🔥</p>
+
+</body>
+</html>

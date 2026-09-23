@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thank You | Lima Chamber of Commerce</title>
+  <meta name="description" content="Thank you for applying to join the Lima Chamber of Commerce. We'll be in touch soon.">
+  <meta name="author" content="Gisela Casas">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Facebook / Open Graph meta tags -->
+  <meta property="og:title" content="Thank You | Lima Chamber of Commerce">
+  <meta property="og:description" content="Thank you for applying to join the Lima Chamber of Commerce. We'll be in touch soon.">
+  <meta property="og:image" content="https://gia-c.github.io/wdd231/chamber/images/og-image.png">
+  <meta property="og:url" content="https://gia-c.github.io/wdd231/chamber/thankyou.html">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets: normalize first, then small, then larger -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/common.js" defer></script>
+  <script src="scripts/thankyou.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-logo">
+      <img src="images/logo.png" alt="Lima Chamber of Commerce logo">
+      <span>Lima Chamber of Commerce</span>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html">Discover</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="thankyou-section">
+      <h1>Thank You!</h1>
+      <p>Thank you for applying to join the Lima Chamber of Commerce. Our team will review your application and get back to you within two business days.</p>
+
+      <div class="submission-summary">
+        <h2>Application Summary</h2>
+        <dl>
+          <dt>First Name</dt>
+          <dd id="out-firstName"></dd>
+
+          <dt>Last Name</dt>
+          <dd id="out-lastName"></dd>
+
+          <dt>Email</dt>
+          <dd id="out-email"></dd>
+
+          <dt>Mobile Phone</dt>
+          <dd id="out-phone"></dd>
+
+          <dt>Business Name</dt>
+          <dd id="out-businessName"></dd>
+
+          <dt>Submitted On</dt>
+          <dd id="out-timestamp"></dd>
+        </dl>
+      </div>
+
+      <a href="index.html" class="cta-button">Back to Home</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-contact">
+        <h2>Lima Chamber of Commerce</h2>
+        <p>Av. Javier Prado Este 1200</p>
+        <p>San Isidro, Lima, Peru</p>
+        <p>info@limachamber.pe</p>
+        <p>(01) 700-1122</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="#">
+          <img src="images/icons/facebook.svg" alt="Facebook">
+        </a>
+        <a href="#">
+          <img src="images/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="#">
+          <img src="images/icons/youtube.svg" alt="YouTube">
+        </a>
+        <a href="#">
+          <img src="images/icons/linkedin.svg" alt="LinkedIn">
+        </a>
+      </div>
+
+      <div class="footer-dev">
+        <p>Gisela Casas</p>
+        <p>WDD 231</p>
+        <p>&copy; <span id="copyrightYear"></span> Lima Chamber of Commerce</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Join | Lima Chamber of Commerce</title>
+  <meta name="description" content="Apply to join the Lima Chamber of Commerce — choose a membership level and become part of Lima's growing business community.">
+  <meta name="author" content="Gisela Casas">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Facebook / Open Graph meta tags -->
+  <meta property="og:title" content="Join | Lima Chamber of Commerce">
+  <meta property="og:description" content="Apply to join the Lima Chamber of Commerce — choose a membership level and become part of Lima's growing business community.">
+  <meta property="og:image" content="https://gia-c.github.io/wdd231/chamber/images/og-image.png">
+  <meta property="og:url" content="https://gia-c.github.io/wdd231/chamber/join.html">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets: normalize first, then small, then larger -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/common.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-logo">
+      <img src="images/logo.png" alt="Lima Chamber of Commerce logo">
+      <span>Lima Chamber of Commerce</span>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html" class="active">Join</a></li>
+        <li><a href="discover.html">Discover</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Join the Chamber</h1>
+    <p class="join-intro">Fill out the application below and choose the membership level that fits your business. Our team will follow up within two business days.</p>
+    <!--Form-->
+    <div class="join-columns">
+      <section class="join-form-section" aria-label="Membership application form">
+        <form action="thankyou.html" method="get" class="join-form">
+          <label for="firstName">
+            First Name
+            <input type="text" id="firstName" name="firstName" title="Enter your first name" autocomplete="given-name" required>
+          </label>
+
+          <label for="lastName">
+            Last Name
+            <input type="text" id="lastName" name="lastName" title="Enter your last name" autocomplete="family-name" required>
+          </label>
+
+          <label for="orgTitle">
+            Your Title in the Organization
+            <input type="text" id="orgTitle" name="orgTitle" title="Enter your title within your organization — letters, hyphens, and spaces only, minimum 7 characters" autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}">
+          </label>
+
+          <label for="email">
+            Email Address
+            <input type="email" id="email" name="email" title="Enter your email address" autocomplete="email" placeholder="name@example.com" required>
+          </label>
+
+          <label for="phone">
+            Mobile Phone Number
+            <input type="tel" id="phone" name="phone" title="Enter your mobile phone number" autocomplete="tel" required>
+          </label>
+
+          <label for="businessName">
+            Business/Organization Name
+            <input type="text" id="businessName" name="businessName" title="Enter your business or organization name" autocomplete="organization" required>
+          </label>
+
+          <label for="membershipLevel">
+            Membership Level
+            <select id="membershipLevel" name="membershipLevel" title="Select a membership level" required>
+              <option value="">Select a level</option>
+              <option value="np">NP Membership</option>
+              <option value="bronze">Bronze Membership</option>
+              <option value="silver">Silver Membership</option>
+              <option value="gold">Gold Membership</option>
+            </select>
+          </label>
+
+          <label for="description">
+            Business/Organization Description
+            <textarea id="description" name="description" title="Briefly describe your business or organization"></textarea>
+          </label>
+
+          <input type="hidden" name="timestamp" id="timestamp">
+
+          <input type="submit" value="Submit Application" class="cta-button submit-btn">
+        </form>
+      </section>
+
+      <!-- Membership cards -->
+      <section class="membership-cards" aria-labelledby="levels-heading">
+        <h2 id="levels-heading">Membership Levels</h2>
+
+        <div class="cards-grid">
+          <div class="membership-card card-np">
+            <h3>NP Membership</h3>
+            <p class="card-price">Free</p>
+            <p>For registered non-profit organizations.</p>
+            <button type="button" class="card-link" data-modal="modal-np">Learn more →</button>
+          </div>
+
+          <div class="membership-card card-bronze">
+            <h3>Bronze Membership</h3>
+            <p class="card-price">Entry level</p>
+            <p>A solid starting point for small businesses.</p>
+            <button type="button" class="card-link" data-modal="modal-bronze">Learn more →</button>
+          </div>
+
+          <div class="membership-card card-silver">
+            <h3>Silver Membership</h3>
+            <p class="card-price">Most popular</p>
+            <p>Extra visibility and training opportunities.</p>
+            <button type="button" class="card-link" data-modal="modal-silver">Learn more →</button>
+          </div>
+
+          <div class="membership-card card-gold">
+            <h3>Gold Membership</h3>
+            <p class="card-price">All-inclusive</p>
+            <p>Maximum exposure and chamber benefits.</p>
+            <button type="button" class="card-link" data-modal="modal-gold">Learn more →</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Membership benefit modals -->
+
+  <dialog id="modal-np" class="membership-modal">
+    <button type="button" class="modal-close" data-close="modal-np" aria-label="Close">&times;</button>
+    <h2>NP Membership Benefits</h2>
+    <ul>
+      <li>Free membership for registered non-profit organizations</li>
+      <li>Listing in the online business directory</li>
+      <li>Access to all chamber networking events</li>
+      <li>Monthly chamber newsletter</li>
+    </ul>
+    <div class="modal-price-row">
+      <p class="modal-price">Free<span class="modal-price-period"></span></p>
+    </div>
+  </dialog>
+
+  <dialog id="modal-bronze" class="membership-modal">
+    <button type="button" class="modal-close" data-close="modal-bronze" aria-label="Close">&times;</button>
+    <h2>Bronze Membership Benefits</h2>
+    <ul>
+      <li>Everything included in NP Membership</li>
+      <li>Enhanced directory listing with business description</li>
+      <li>Discounted tickets to chamber events</li>
+      <li>Access to member-only workshops</li>
+    </ul>
+    <div class="modal-price-row">
+      <p class="modal-price">S/ 50 <span class="modal-price-period">/month</span></p>
+    </div>
+  </dialog>
+
+  <dialog id="modal-silver" class="membership-modal">
+    <button type="button" class="modal-close" data-close="modal-silver" aria-label="Close">&times;</button>
+    <h2>Silver Membership Benefits</h2>
+    <ul>
+      <li>Everything included in Bronze Membership</li>
+      <li>Rotating spotlight feature on the chamber homepage</li>
+      <li>One social media feature per year</li>
+      <li>Priority registration for chamber training events</li>
+    </ul>
+    <div class="modal-price-row">
+      <p class="modal-price">S/ 100 <span class="modal-price-period">/month</span></p>
+    </div>
+  </dialog>
+
+  <dialog id="modal-gold" class="membership-modal">
+    <button type="button" class="modal-close" data-close="modal-gold" aria-label="Close">&times;</button>
+    <h2>Gold Membership Benefits</h2>
+    <ul>
+      <li>Everything included in Silver Membership</li>
+      <li>Priority placement in homepage spotlights</li>
+      <li>Two complimentary guest passes to the Annual Chamber Gala</li>
+      <li>Quarterly advertising feature in the chamber newsletter</li>
+      <li>One free business consultation session per year</li>
+    </ul>
+    <div class="modal-price-row">
+      <p class="modal-price">S/ 200 <span class="modal-price-period">/month</span></p>
+    </div>
+  </dialog>
+
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-contact">
+        <h2>Lima Chamber of Commerce</h2>
+        <p>Av. Javier Prado Este 1200</p>
+        <p>San Isidro, Lima, Peru</p>
+        <p>info@limachamber.pe</p>
+        <p>(01) 700-1122</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="#">
+          <img src="images/icons/facebook.svg" alt="Facebook">
+        </a>
+        <a href="#">
+          <img src="images/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="#">
+          <img src="images/icons/youtube.svg" alt="YouTube">
+        </a>
+        <a href="#">
+          <img src="images/icons/linkedin.svg" alt="LinkedIn">
+        </a>
+      </div>
+
+      <div class="footer-dev">
+        <p>Gisela Casas</p>
+        <p>WDD 231</p>
+        <p>&copy; <span id="copyrightYear"></span> Lima Chamber of Commerce</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -93,4 +93,19 @@
   .spotlight-list {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* ---------- Join page: form + cards side by side ---------- */
+
+  .join-columns {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .join-form-section {
+    flex: 2;
+  }
+
+  .membership-cards {
+    flex: 1;
+  }
 }

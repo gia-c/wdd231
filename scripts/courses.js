@@ -102,6 +102,9 @@ function renderCourses(subjectFilter) {
 
     card.append(code, title, meta);
     courseList.appendChild(card);
+
+    // Open this course's details in the modal when the card is clicked.
+    card.addEventListener('click', () => showCourseModal(course));
   });
 
   const totalCredits = filtered.reduce((sum, course) => sum + course.credits, 0);
@@ -117,3 +120,40 @@ filterButtons.forEach((button) => {
 });
 
 renderCourses('ALL');
+
+
+const courseModal = document.getElementById('courseModal');
+
+// Builds the modal content for one course and opens the dialog.
+function showCourseModal(course) {
+  // Fill the dialog with this course's details.
+  courseModal.innerHTML = `
+    <div class="modal-header">
+      <h3>${course.subject} ${course.number}</h3>
+      <button type="button" class="modal-close" aria-label="Close course details">&times;</button>
+    </div>
+    <div class="modal-body">
+      <h4>${course.title}</h4>
+      <p>${course.credits} credits</p>
+      <p>Certificate: ${course.certificate}</p>
+      <p>${course.description}</p>
+      <p>Technology: ${course.technology.join(', ')}</p>
+    </div>
+  `;
+
+  courseModal.showModal();
+
+  // Close button inside the modal.
+  courseModal.querySelector('.modal-close').addEventListener('click', () => {
+    courseModal.close();
+  });
+}
+
+// Close the modal when the user clicks outside of it (on the backdrop area).
+// A click on the dialog element itself (not on its inner content) means
+// the click landed outside the visible box.
+courseModal.addEventListener('click', (event) => {
+  if (event.target === courseModal) {
+    courseModal.close();
+  }
+});
