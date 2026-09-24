@@ -32,6 +32,45 @@ h3 {
   font-family: var(--font-heading);
 }
 
+/* Shared "card surface" look — reused by member cards, event cards,
+   the weather box, spotlight cards, the join form, membership cards,
+   and the thank-you summary box. Each keeps only its own extra rules
+   (padding, text-align, etc.) below. */
+.member-card,
+.event-card,
+.weather-section,
+.spotlight-card,
+.join-form,
+.membership-card,
+.submission-summary {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: var(--shadow-base);
+}
+
+/* Shared hover lift for clickable cards (not the directory list-view rows) */
+#member-list:not(.list-view) .member-card:hover,
+.event-card:hover,
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
+}
+
+/* Shared heading-style label look — used on small bold labels
+   like nav links, buttons, dates, and form labels */
+nav a,
+.view-buttons button,
+.event-date,
+.forecast-label,
+.join-form label,
+.card-link,
+.submission-summary dt {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
 /* ---------- Header ---------- */
 
 header {
@@ -118,14 +157,13 @@ nav a {
   display: block;
   padding: 0.9rem 1.25rem;
   color: var(--color-background);
-  font-family: var(--font-heading);
-  font-weight: 600;
   border-bottom: 1px solid var(--color-primary);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 nav a:hover,
-nav a.active {
+nav a.active,
+.view-buttons button.active {
   background-color: var(--color-accent);
   color: var(--color-primary);
 }
@@ -154,8 +192,6 @@ main {
 }
 
 .view-buttons button {
-  font-family: var(--font-heading);
-  font-weight: 600;
   padding: 0.5rem 1.25rem;
   background-color: var(--color-secondary);
   color: var(--color-background);
@@ -167,11 +203,6 @@ main {
   background-color: var(--color-primary);
 }
 
-.view-buttons button.active {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-}
-
 /* ---------- Member cards ---------- */
 
 #member-list {
@@ -181,22 +212,12 @@ main {
 }
 
 .member-card {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   overflow: hidden;
-  box-shadow: var(--shadow-base);
 }
 
 /* Interactive hover lift — grid view only, not the list-view rows */
 #member-list:not(.list-view) .member-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-#member-list:not(.list-view) .member-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--color-accent);
 }
 
 .member-card-header {
@@ -419,24 +440,12 @@ main {
 }
 
 .event-card {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   padding: 1rem;
-  box-shadow: var(--shadow-base);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.event-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--color-accent);
 }
 
 .event-date {
   display: inline-block;
-  font-family: var(--font-heading);
-  font-weight: 600;
   font-size: 0.75rem;
   color: var(--color-primary);
   background-color: var(--color-highlight);
@@ -455,11 +464,7 @@ main {
 }
 
 .weather-section {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   padding: 1rem;
-  box-shadow: var(--shadow-base);
 }
 
 .current-weather-info {
@@ -505,8 +510,6 @@ main {
 
 .forecast-label {
   font-size: 0.75rem;
-  font-family: var(--font-heading);
-  font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
@@ -527,19 +530,9 @@ main {
 }
 
 .spotlight-card {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   padding: 1.25rem;
   text-align: center;
-  box-shadow: var(--shadow-base);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.spotlight-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--color-accent);
 }
 
 .spotlight-card img {
@@ -586,19 +579,13 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   padding: 1.5rem;
-  box-shadow: var(--shadow-base);
 }
 
 .join-form label {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  font-family: var(--font-heading);
-  font-weight: 600;
   font-size: 0.9rem;
   color: var(--color-primary);
 }
@@ -662,11 +649,7 @@ main {
 }
 
 .membership-card {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   padding: 1.1rem;
-  box-shadow: var(--shadow-base);
 
   /* staggered entrance animation — not a hover effect */
   opacity: 0;
@@ -720,8 +703,6 @@ main {
   border: none;
   border-radius: 20px;
   padding: 0.4rem 1rem;
-  font-family: var(--font-heading);
-  font-weight: 600;
   font-size: 0.8rem;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -885,13 +866,9 @@ dialog.membership-modal li {
 }
 
 .submission-summary {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   padding: 1.5rem;
   text-align: left;
   margin-bottom: 1.75rem;
-  box-shadow: var(--shadow-base);
 }
 
 .submission-summary h2 {
@@ -906,8 +883,6 @@ dialog.membership-modal li {
 }
 
 .submission-summary dt {
-  font-family: var(--font-heading);
-  font-weight: 600;
   color: var(--color-primary);
 }
 
