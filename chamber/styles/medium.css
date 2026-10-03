@@ -1,0 +1,18 @@
+/* medium.css
+   Discover page layout for medium screens (641px–1024px).
+   Uses named grid areas — not just an extra column — so the
+   featured item (first and last) spans the full width while
+   the rest sit in a 2-column row.
+ */
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .discover-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "i1 i1"
+      "i2 i3"
+      "i4 i5"
+      "i6 i7"
+      "i8 i8";
+  }
+}
