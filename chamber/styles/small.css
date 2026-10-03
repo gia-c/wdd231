@@ -1,24 +1,31 @@
 /* Base styles for all screens, starting at 320px wide.
-Larger screen styles are added in larger.css */
- 
-:root {
-  --color-primary: #094074;    /* dark blue: header, footer, main text */
-  --color-secondary: #3c6997;  /* medium blue: nav, secondary buttons */
-  --color-accent: #5adbff;     /* sky blue: highlights, badges (pair with dark text) */
-  --color-highlight: #ffdd4a;  /* yellow: gold badge, highlight accents (pair with dark text) */
-  --color-cta: #fe9000;        /* orange: call-to-action button (pair with dark text) */
+   Larger screen styles are added in larger.css */
 
-  --color-background: #ffffff; /* page background, and light text on dark backgrounds */
+:root {
+  --color-primary: #094074;
+  --color-secondary: #3c6997;
+  --color-accent: #5adbff;
+  --color-highlight: #ffdd4a;
+  --color-cta: #fe9000;
+
+  --color-background: #ffffff;
   --color-card: #ffffff;
   --color-text: #094074;
-  --color-border: rgba(9, 64, 116, 0.18);
 
-  --shadow-base: 0 1px 3px rgba(9, 64, 116, 0.12);
-  --shadow-hover: 0 10px 22px rgba(9, 64, 116, 0.22);
+  --color-border: #0940742e;
+  --color-row-alt: #3c699712;
+  --color-overlay: #30537399;
+  --color-fun-fact: #5adbff26;
+  --color-backdrop: #0940748c;
+
+  --shadow-base: 0 1px 3px #0940741f;
+  --shadow-hover: 0 10px 22px #09407438;
 
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Open Sans", sans-serif;
 }
+
+/* ---------- Base ---------- */
 
 body {
   font-family: var(--font-body);
@@ -32,50 +39,45 @@ h3 {
   font-family: var(--font-heading);
 }
 
-/* Shared "card surface" look — reused by member cards, event cards,
-   the weather box, spotlight cards, the join form, membership cards,
-   and the thank-you summary box. Each keeps only its own extra rules
-   (padding, text-align, etc.) below. */
+/* Shared card surface */
+
 .member-card,
 .event-card,
 .weather-section,
 .spotlight-card,
 .join-form,
 .membership-card,
-.submission-summary {
+.submission-summary,
+.discover-card {
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   box-shadow: var(--shadow-base);
 }
 
-/* Shared hover lift for clickable cards (not the directory list-view rows) */
-#member-list:not(.list-view) .member-card:hover,
-.event-card:hover,
-.spotlight-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--color-accent);
-}
+/* Shared heading-style labels */
 
-/* Shared heading-style label look — used on small bold labels
-   like nav links, buttons, dates, and form labels */
 nav a,
 .view-buttons button,
 .event-date,
 .forecast-label,
 .join-form label,
 .card-link,
-.submission-summary dt {
+.submission-summary dt,
+.learn-more-btn {
   font-family: var(--font-heading);
   font-weight: 600;
 }
 
 /* ---------- Header ---------- */
 
-header {
+header,
+footer {
   background-color: var(--color-primary);
   color: var(--color-background);
+}
+
+header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -100,7 +102,8 @@ header {
   font-size: 1rem;
 }
 
-/* Hamburger button, only shown on small screens */
+/* ---------- Mobile navigation ---------- */
+
 .nav-toggle {
   background: none;
   border: none;
@@ -182,7 +185,7 @@ main {
   text-align: center;
 }
 
-/* View toggle buttons */
+/* ---------- View buttons ---------- */
 
 .view-buttons {
   display: flex;
@@ -196,7 +199,10 @@ main {
   background-color: var(--color-secondary);
   color: var(--color-background);
   border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .view-buttons button:hover {
@@ -215,9 +221,19 @@ main {
   overflow: hidden;
 }
 
-/* Interactive hover lift — grid view only, not the list-view rows */
 #member-list:not(.list-view) .member-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+#member-list:not(.list-view) .member-card:hover,
+.event-card:hover,
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
 }
 
 .member-card-header {
@@ -270,25 +286,22 @@ main {
   border-radius: 3px;
 }
 
-/* Member: secondary blue bg, white text */
 .badge-1 {
   background-color: var(--color-secondary);
   color: var(--color-background);
 }
 
-/* Silver: sky accent bg, dark text */
 .badge-2 {
   background-color: var(--color-accent);
   color: var(--color-primary);
 }
 
-/* Gold: yellow highlight bg, dark text */
 .badge-3 {
   background-color: var(--color-highlight);
   color: var(--color-primary);
 }
 
-/* List view: flat table-style rows, alternating background */
+/* ---------- Member list view ---------- */
 
 #member-list.list-view {
   display: block;
@@ -308,7 +321,7 @@ main {
 }
 
 #member-list.list-view .member-card:nth-child(even) {
-  background-color: rgba(60, 105, 151, 0.07);
+  background-color: var(--color-row-alt);
 }
 
 #member-list.list-view .member-card-header {
@@ -323,7 +336,6 @@ main {
   color: var(--color-text);
 }
 
-
 #member-list.list-view .member-card-header p,
 #member-list.list-view .member-info p:nth-of-type(3) {
   display: none;
@@ -334,7 +346,9 @@ main {
   padding: 0;
 }
 
-#member-list.list-view .member-card-body img {
+#member-list.list-view .member-card-body img,
+#member-list.list-view .membership-badge,
+#member-list.list-view .member-info p strong {
   display: none;
 }
 
@@ -350,14 +364,6 @@ main {
   margin-bottom: 0;
   overflow-wrap: normal;
   word-break: keep-all;
-}
-
-#member-list.list-view .member-info p strong {
-  display: none;
-}
-
-#member-list.list-view .membership-badge {
-  display: none;
 }
 
 /* ---------- Hero ---------- */
@@ -377,11 +383,8 @@ main {
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(48, 83, 115, 0.6);
+  inset: 0;
+  background-color: var(--color-overlay);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -408,7 +411,10 @@ main {
   font-weight: 600;
   padding: 0.75rem 1.75rem;
   border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .cta-button:hover {
@@ -417,7 +423,7 @@ main {
   transform: translateY(-2px);
 }
 
-/* ---------- Home columns: events + weather ---------- */
+/* ---------- Home columns ---------- */
 
 .home-columns {
   display: flex;
@@ -439,9 +445,16 @@ main {
   gap: 1rem;
 }
 
+.event-card,
+.spotlight-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
 .event-card {
   padding: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .event-date {
@@ -462,6 +475,8 @@ main {
 .event-card p:last-child {
   font-size: 0.9rem;
 }
+
+/* ---------- Weather ---------- */
 
 .weather-section {
   padding: 1rem;
@@ -532,7 +547,6 @@ main {
 .spotlight-card {
   padding: 1.25rem;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .spotlight-card img {
@@ -554,11 +568,7 @@ main {
   overflow-wrap: break-word;
 }
 
-.spotlight-card .membership-badge {
-  margin-top: 0.5rem;
-}
-
-/* ---------- Join page: intro + layout columns ---------- */
+/* ---------- Join page ---------- */
 
 .join-intro {
   max-width: 700px;
@@ -572,8 +582,6 @@ main {
   gap: 2rem;
   margin-bottom: 2rem;
 }
-
-/* ---------- Join form ---------- */
 
 .join-form {
   display: flex;
@@ -635,7 +643,7 @@ main {
   color: var(--color-background);
 }
 
-/* ---------- Membership level cards ---------- */
+/* ---------- Membership cards ---------- */
 
 .membership-cards h2 {
   margin-bottom: 1rem;
@@ -650,8 +658,6 @@ main {
 
 .membership-card {
   padding: 1.1rem;
-
-  /* staggered entrance animation — not a hover effect */
   opacity: 0;
   transform: translateY(16px);
   animation: cardFadeIn 0.6s ease forwards;
@@ -713,7 +719,7 @@ main {
   box-shadow: var(--shadow-base);
 }
 
-/* ---------- Membership level colors ---------- */
+/* Membership colors */
 
 .card-np {
   border-top: 4px solid var(--color-secondary);
@@ -750,7 +756,8 @@ main {
   background-color: var(--color-highlight);
   color: var(--color-primary);
 }
-/* ---------- Membership benefit modals ---------- */
+
+/* ---------- Membership modals ---------- */
 
 dialog.membership-modal {
   border: none;
@@ -764,7 +771,7 @@ dialog.membership-modal {
 }
 
 dialog.membership-modal::backdrop {
-  background-color: rgba(9, 64, 116, 0.55);
+  background-color: var(--color-backdrop);
 }
 
 dialog.membership-modal h2 {
@@ -805,7 +812,7 @@ dialog.membership-modal li {
   background-color: var(--color-primary);
 }
 
-/* ---------- Modal price (separate from the benefits list) ---------- */
+/* Modal price */
 
 .modal-price-row {
   border-top: 1px solid var(--color-border);
@@ -848,7 +855,7 @@ dialog.membership-modal li {
   color: var(--color-primary);
 }
 
-/* ---------- Thank you page ---------- */
+/* ---------- Thank-you page ---------- */
 
 .thankyou-section {
   max-width: 600px;
@@ -894,8 +901,6 @@ dialog.membership-modal li {
 /* ---------- Footer ---------- */
 
 footer {
-  background-color: var(--color-primary);
-  color: var(--color-background);
   padding: 1.5rem 1rem;
   font-size: 0.85rem;
 }
@@ -947,7 +952,7 @@ footer a {
   height: 18px;
 }
 
-/* ---------- Discover page: visit message ---------- */
+/* ---------- Discover page ---------- */
 
 .visit-message {
   display: flex;
@@ -972,14 +977,10 @@ footer a {
   cursor: pointer;
 }
 
-/* ---------- Discover page: cards ---------- */
+/* Discover cards */
 
 .discover-card {
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
   overflow: hidden;
-  box-shadow: var(--shadow-base);
   padding: 1rem;
 }
 
@@ -1012,7 +1013,7 @@ footer a {
 }
 
 .fun-fact {
-  background-color: rgba(90, 219, 255, 0.15);
+  background-color: var(--color-fun-fact);
   border-left: 3px solid var(--color-accent);
   padding: 0.5rem 0.75rem;
   font-size: 0.85rem;
@@ -1022,8 +1023,6 @@ footer a {
   display: inline-block;
   background-color: var(--color-secondary);
   color: var(--color-background);
-  font-family: var(--font-heading);
-  font-weight: 600;
   font-size: 0.85rem;
   padding: 0.4rem 1rem;
   border-radius: 20px;
@@ -1035,27 +1034,10 @@ footer a {
   background-color: var(--color-primary);
 }
 
-/* Small screens (320px–640px): one column, cards simply stacked */
+/* Small screens (320px–640px) */
+
 .discover-grid {
   display: grid;
   gap: 1.25rem;
   grid-template-columns: 1fr;
-  grid-template-areas:
-    "i1"
-    "i2"
-    "i3"
-    "i4"
-    "i5"
-    "i6"
-    "i7"
-    "i8";
 }
-
-.item-1 { grid-area: i1; }
-.item-2 { grid-area: i2; }
-.item-3 { grid-area: i3; }
-.item-4 { grid-area: i4; }
-.item-5 { grid-area: i5; }
-.item-6 { grid-area: i6; }
-.item-7 { grid-area: i7; }
-.item-8 { grid-area: i8; }
