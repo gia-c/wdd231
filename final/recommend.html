@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommend or Ask - Lima Coffee Map</title>
+  <meta name="description" content="Suggest a café or restaurant Lima Coffee Map is missing, or send a question about the site.">
+  <meta name="author" content="Gisela Casas">
+  <meta property="og:title" content="Lima Coffee Map - Recommend a place">
+  <meta property="og:description" content="Suggest a place for the directory or ask a question.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lora:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="module" src="scripts/nav.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a class="site-title" href="index.html">
+        <img src="images/favicon.svg" alt="" width="32" height="32">
+        Lima Coffee Map
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="recommend.html">Recommend</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <h1>Recommend a place or ask a question</h1>
+    <div class="form-intro">
+      <p>Know a café or restaurant that should be on Lima Coffee Map? Suggest it below. You can also use this form to send a question or comment about the site.</p>
+    </div>
+
+    <form class="contact-form" action="thankyou.html" method="GET">
+      <div class="form-group">
+        <label for="request-type">This is a...</label>
+        <select id="request-type" name="type" required>
+          <option value="Suggestion">Suggestion</option>
+          <option value="Question">Question</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="place">Place name</label>
+        <input type="text" id="place" name="place">
+        <p class="form-hint">Only fill this in if you're suggesting a new place.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" required placeholder="Tell us about the place, or ask your question..."></textarea>
+      </div>
+
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><img src="images/instagram-icon.svg" alt="Instagram"></a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><img src="images/youtube-icon.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><img src="images/tiktok-icon.svg" alt="TikTok"></a>
+    </div>
+    <p>&copy; 2026 Lima Coffee Map. All rights reserved.</p>
+    <p><a href="attributions.html">Attributions</a></p>
+    <p><a href="https://byupathwayworldwideprod-my.sharepoint.com/:v:/g/personal/lcasaszena_byupathway_edu/IQAa9xitywIWTqRrhj9u8LBcAbpLaBt9S2pg4Jfb_MDOPHM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=zn1dKR" target="_blank" rel="noopener noreferrer">Demonstration Video</a></p>
+  </footer>
+
+</body>
+</html>

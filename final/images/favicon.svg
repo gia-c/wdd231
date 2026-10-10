@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fondo Circular Emblemático -->
+  <circle cx="256" cy="256" r="240" fill="#3B2415"/>
+  <circle cx="256" cy="256" r="220" fill="none" stroke="#F5E6CA" stroke-width="6" stroke-dasharray="12 12"/>
+  
+  <!-- Vapor de Café / Ondas Estilizadas -->
+  <path d="M216 140 Q 226 110, 216 80 T 216 20" fill="none" stroke="#F5E6CA" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+  <path d="M256 130 Q 268 95, 256 60 T 256 10" fill="none" stroke="#F5E6CA" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+  <path d="M296 140 Q 306 110, 296 80 T 296 20" fill="none" stroke="#F5E6CA" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Taza de Café -->
+  <!-- Cuerpo principal de la taza -->
+  <path d="M140 180 H 372 L 348 340 C 344 370, 310 390, 256 390 C 202 390, 168 370, 164 340 Z" fill="#6F4E37"/>
+  
+  <!-- Interior/Borde Superior de la Taza -->
+  <ellipse cx="256" cy="180" rx="116" ry="20" fill="#96432F"/>
+  <ellipse cx="256" cy="180" rx="104" ry="14" fill="#3B2415"/>
+  <ellipse cx="256" cy="180" rx="92" ry="10" fill="#6F4E37"/>
+
+  <!-- Asa de la Taza -->
+  <path d="M362 210 C 420 210, 430 310, 350 320" fill="none" stroke="#6F4E37" stroke-width="24" stroke-linecap="round"/>
+  <path d="M362 210 C 420 210, 430 310, 350 320" fill="none" stroke="#96432F" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Plato Base -->
+  <path d="M120 400 H 392 C 410 400, 420 415, 400 425 C 360 445, 152 445, 112 425 C 92 415, 102 400, 120 400 Z" fill="#F5E6CA"/>
+  <ellipse cx="256" cy="405" rx="130" ry="8" fill="#96432F" opacity="0.5"/>
+
+  <!-- Detalle Icónico: Grano de Café Central -->
+  <g transform="translate(256, 275) scale(1.1)">
+    <!-- Silueta del grano -->
+    <path d="M-25 -35 C 10 -45, 40 -15, 30 20 C 20 50, -20 45, -30 20 C -40 -5, -35 -25, -25 -35 Z" fill="#F5E6CA"/>
+    <!-- Hendidura del grano -->
+    <path d="M-12 -30 Q 5 -5, -10 25 Q 0 10, 10 -20" fill="none" stroke="#3B2415" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

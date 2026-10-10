@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory - Lima Coffee Map</title>
+  <meta name="description" content="Browse the full directory of cafés and restaurants in Lima, filter by district and type, and view details for each place.">
+  <meta name="author" content="Gisela Casas">
+  <meta property="og:title" content="Lima Coffee Map Directory">
+  <meta property="og:description" content="Browse cafés and restaurants around Lima, filter by district and type, and save your favorites.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lora:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="module" src="scripts/nav.js"></script>
+  <script type="module" src="scripts/directory.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a class="site-title" href="index.html">
+        <img src="images/favicon.svg" alt="" width="32" height="32">
+        Lima Coffee Map
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="recommend.html">Recommend</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <h1>Directory</h1>
+    <p>Browse every spot on Lima Coffee Map. Filter by district or type, show only your saved favorites, and click any card to see more detail.</p>
+
+    <div class="filter-bar">
+      <label for="district-filter">District:</label>
+      <select id="district-filter">
+        <option value="all">All districts</option>
+      </select>
+
+      <label for="type-filter">Type:</label>
+      <select id="type-filter">
+        <option value="all">Café &amp; Restaurant</option>
+      </select>
+
+      <button class="favorites-toggle" id="favorites-toggle" aria-pressed="false">Show only favorites &#9733;</button>
+    </div>
+
+    <!-- Cards are generated here by JavaScript -->
+    <div class="card-grid" id="card-grid">
+      <p id="loading-message">Loading places...</p>
+    </div>
+  </main>
+
+  <!-- Modal with place detail. Hidden until a card is clicked. -->
+  <div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close details">&times;</button>
+      <h2 id="modal-title"></h2>
+      <dl>
+        <dt>District</dt>
+        <dd id="modal-district"></dd>
+        <dt>Type</dt>
+        <dd id="modal-type"></dd>
+        <dt>Specialty</dt>
+        <dd id="modal-specialty"></dd>
+        <dt>Price range</dt>
+        <dd id="modal-price"></dd>
+        <dt>Address</dt>
+        <dd id="modal-address"></dd>
+        <dt>Hours</dt>
+        <dd id="modal-hours"></dd>
+        <dt>About</dt>
+        <dd id="modal-description"></dd>
+      </dl>
+      <a class="modal-website" id="modal-website" href="#" target="_blank" rel="noopener">Visit page</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><img src="images/instagram-icon.svg" alt="Instagram"></a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><img src="images/youtube-icon.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><img src="images/tiktok-icon.svg" alt="TikTok"></a>
+    </div>
+    <p>&copy; 2026 Lima Coffee Map. All rights reserved.</p>
+    <p><a href="attributions.html">Attributions</a></p>
+    <p><a href="https://byupathwayworldwideprod-my.sharepoint.com/:v:/g/personal/lcasaszena_byupathway_edu/IQAa9xitywIWTqRrhj9u8LBcAbpLaBt9S2pg4Jfb_MDOPHM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=zn1dKR" target="_blank" rel="noopener noreferrer">Demonstration Video</a></p>
+  </footer>
+
+</body>
+</html>
