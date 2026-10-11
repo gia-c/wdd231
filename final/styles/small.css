@@ -1,0 +1,54 @@
+/* Small screens: hamburger menu */
+
+@media (max-width: 600px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-container {
+    position: relative;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-brown);
+    box-shadow: 0 6px 10px var(--color-shadow-strong);
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links li {
+    border-top: 1px solid var(--color-border-light);
+  }
+  .nav-links a {
+    display: block;
+    padding: 0.75rem 0;
+  }
+}
+
+/* ---------- Small screens: favorites entries ---------- */
+
+@media (max-width: 600px) {
+  .place-entry {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .place-entry img {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 420px;
+  }
+  .place-entry h3 {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0.6rem;
+  }
+  .place-entry p {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
